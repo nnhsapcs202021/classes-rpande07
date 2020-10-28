@@ -9,27 +9,14 @@ import javax.swing.JComponent;
  */
 public class TargetComponent extends JComponent
 {
-    // instance variables - replace the example below with your own
-    private int x;
+   @Override
+   public void paintComponent(Graphics g)
+   {  
+      Graphics2D g2 = (Graphics2D) g;  // cast to Graphics2D object
 
-    /**
-     * Constructor for objects of class TargetComponent
-     */
-    public TargetComponent()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+      Target target = new Target(0, 0); // initialize a new Target object
+      
+      // draws target
+      target.draw(g2); 
+   }
 }

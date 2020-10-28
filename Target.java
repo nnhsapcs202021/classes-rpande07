@@ -11,27 +11,33 @@ import java.awt.geom.Point2D;
  */
 public class Target
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private int xLeft;
+    private int yTop;
 
     /**
-     * Constructor for objects of class Target
+    Constructs a car with a given top left corner.
+    @param x the x coordinate of the top left corner
+    @param y the y coordinate of the top left corner
      */
-    public Target()
+    public Target(int initialX, int initialY)
     {
-        // initialise instance variables
-        x = 0;
+        this.xLeft = initialX;
+        this.yTop = initialY;
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+    Draws the car.
+    @param g2 the graphics context
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void draw(Graphics2D g2)
+    {   
+        Ellipse2D.Double frontTire 
+        = new Ellipse2D.Double(this.xLeft + 300, this.yTop + 250, 100, 100);
+        Ellipse2D.Double rearTire 
+        = new Ellipse2D.Double(this.xLeft + 300, this.yTop + 250, 50, 50);
+
+        // draws the target
+        g2.draw(frontTire);
+        g2.draw(rearTire);
     }
 }
