@@ -1,14 +1,12 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.geom.Rectangle2D;
 import java.awt.geom.Ellipse2D;
-import java.awt.geom.Line2D;
-import java.awt.geom.Point2D;
+
 /**
- * Write a description of class Target here.
+ * Information on how to draw target with alternating black and white rings.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Ria Pande
+ * @version 10/28/20
  */
 public class Target
 {
@@ -16,7 +14,7 @@ public class Target
     private int yTop;
 
     /**
-    Constructs a car with a given top left corner.
+    Constructs a target.
     @param x the x coordinate of the top left corner
     @param y the y coordinate of the top left corner
      */
@@ -27,7 +25,7 @@ public class Target
     }
 
     /**
-    Draws the car.
+    Draws the target in the center.
     @param g2 the graphics context
      */
     public void draw(Graphics2D g2)
@@ -55,14 +53,23 @@ public class Target
 
         // draws the rings
         g2.fill(ring1);
+        g2.setPaint(Color.white);
         g2.fill(ring2);
-        g2.draw(ring3);
-        g2.draw(ring4);
-        g2.draw(ring5);
-        g2.draw(ring6);
-        g2.draw(ring7);
-        g2.draw(ring8);
-        g2.draw(ring9);
-        g2.draw(ring10);
+        g2.setPaint(Color.black);
+        g2.fill(ring3);
+        g2.setPaint(Color.white);
+        g2.fill(ring4);
+        g2.setPaint(Color.black);
+        g2.fill(ring5);
+        g2.setPaint(Color.white);
+        g2.fill(ring6);
+        g2.setPaint(Color.black);
+        g2.fill(ring7);
+        g2.setPaint(Color.white);
+        g2.fill(ring8);
+        g2.setPaint(Color.black);
+        g2.fill(ring9);
+        g2.setPaint(Color.white);
+        g2.fill(ring10);
     }
 }

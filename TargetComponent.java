@@ -2,10 +2,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JComponent;
 /**
- * Write a description of class TargetComponent here.
+ * Draws target with alternating black and white rings.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Ria Pande
+ * @version 10/28/20
  */
 public class TargetComponent extends JComponent
 {

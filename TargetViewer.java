@@ -1,9 +1,9 @@
 import javax.swing.JFrame;
 /**
- * Write a description of class TargetViewer here.
+ * Creates frame with specific attributes.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Ria Pande
+ * @version 10/28/20
  */
 public class TargetViewer
 {
