@@ -27,7 +27,7 @@ public class CityscapeViewer
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         // a frame contains a single component; create the Cityscape component and add it to the frame
-        CityscapeComponent component = new CityscapeComponent(100, 100);
+        CityscapeComponent component = new CityscapeComponent();
         frame.add(component);
         
         // make the frame visible which will result in the paintComponent method being invoked on the
