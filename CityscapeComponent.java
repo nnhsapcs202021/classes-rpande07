@@ -1,10 +1,6 @@
-import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.geom.Ellipse2D;
 import javax.swing.JComponent;
-import java.awt.geom.Rectangle2D;
-import java.awt.geom.Line2D;
-import java.awt.geom.Point2D;
 
 /**
  * Class that creates instances of the classes that comprise the cityscape and delegates drawing the
@@ -13,30 +9,31 @@ import java.awt.geom.Point2D;
  * @author rpande
  * @version 18 July 2014
  */
+
 public class CityscapeComponent extends JComponent
 {
-    // define the objects in your Cityscape as instance variables
-    // ...
-
-    
-    // define the CityscapeComponent contructor and intiailize all instance variables
-    // ...
-
-    /**
-     * This method is invoked by the Java Run-Time whenever the component needs to be redrawn.
-     * It does not need to be invoked explicitly.
-     * 
-     * @param g a reference to the Graphics object used for all drawing operations
-     *
-     */
-
-    public void paintComponent(Graphics2D g2)
+    @Override
+    public void paintComponent(Graphics g)
     {
-        //Graphics2D g2 = (Graphics2D) g;  // cast to Graphics2D object
+        Graphics2D g2 = (Graphics2D) g;  // cast to Graphics2D object
 
-        Rectangle2D.Double building1 = new Rectangle2D.Double(500, 500, 300, 300);
+        Cityscape building1 = new Cityscape(400, 100);
+        Cityscape building2 = new Cityscape(400, 100);
+        Cityscape building3 = new Cityscape(400, 100);
+        Cityscape building4 = new Cityscape(400, 100);
+        Cityscape building5 = new Cityscape(400, 100);
+        Cityscape building6 = new Cityscape(400, 100);
+        Cityscape building7 = new Cityscape(400, 100);
+        Cityscape building8 = new Cityscape(400, 100);
 
-        g2.fill(building1);
+        building1.draw(g2);
+        building2.draw(g2);
+        building3.draw(g2);
+        building4.draw(g2);
+        building5.draw(g2);
+        building6.draw(g2);
+        building7.draw(g2);
+        building8.draw(g2);
     }
 
     /**
@@ -49,7 +46,6 @@ public class CityscapeComponent extends JComponent
         // update the objects in the cityscape so they are animated
         // ...
 
-        
         // request that the Java Runtime repaints this component by invoking its paintComponent method
         //  do not explicitly invoke the paintComponent method
         repaint();
