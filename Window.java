@@ -1,4 +1,5 @@
 
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Graphics;
@@ -13,10 +14,8 @@ import java.awt.geom.Point2D;
  * @author Ria Pande
  * @version 10/28/20
  */
-public class Building
+public class Window
 {
-    private int buildingLength;
-    private int buildingWidth;
     private int xLeft;
     private int yTop;
 
@@ -25,10 +24,8 @@ public class Building
     @param x the x coordinate of the top left corner
     @param y the y coordinate of the top left corner
      */
-    public Building(int initialX, int initialY, int width, int length)
+    public Window(int initialX, int initialY)
     {
-        this.buildingLength = length;
-        this.buildingWidth = width;
         this.xLeft = initialX;
         this.yTop = initialY;
     }
@@ -38,11 +35,11 @@ public class Building
      */
     public void draw(Graphics2D g2)
     {   
-        Rectangle2D.Double building = 
-        new Rectangle2D.Double(this.xLeft, this.yTop, this.buildingWidth, this.buildingLength);
+        Rectangle2D.Double window = 
+        new Rectangle2D.Double(this.xLeft, this.yTop, 20, 20);
 
-        g2.fill(building);
-        
+        g2.setPaint(Color.yellow);
+        g2.fill(window);
         
     }
 }

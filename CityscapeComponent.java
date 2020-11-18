@@ -31,6 +31,7 @@ public class CityscapeComponent extends JComponent
   private Building building12; 
   private Building building13; 
   private Building building14; 
+  private Window window1;
     
     @Override
     public void paintComponent(Graphics g)
@@ -66,6 +67,11 @@ public class CityscapeComponent extends JComponent
         building12.draw(g2);
         building13.draw(g2);
         building14.draw(g2);
+        
+        
+        Window window1 = new Window(100,100);
+        
+        window1.draw(g2);
     }
 
     /**
