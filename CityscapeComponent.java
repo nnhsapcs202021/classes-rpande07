@@ -12,46 +12,84 @@ import java.awt.geom.Point2D;
  *  cityscape to these object.
  * 
  * @author rpande
- * @version 13 November 2020
+ * @version 28 October 2020
  */
 
 public class CityscapeComponent extends JComponent
 {
-  private Building building1;
-  private Building building2; 
-  private Building building3; 
-  private Building building4; 
-  private Building building5; 
-  private Building building6; 
-  private Building building7; 
-  private Building building8;
-  private Building building9; 
-  private Building building10; 
-  private Building building11; 
-  private Building building12; 
-  private Building building13; 
-  private Building building14; 
-    
+
+    /**
+     * defines objects (buildings and sky) and important integers 
+     * (values of red, green, and blue in sky) as instance variables
+     */
+
+    private Sky sky;
+    private int skyRed;
+    private int skyGreen;
+    private int skyBlue;
+
+    private Building building1;
+    private Building building2; 
+    private Building building3; 
+    private Building building4; 
+    private Building building5; 
+    private Building building6; 
+    private Building building7; 
+    private Building building8;
+    private Building building9; 
+    private Building building10; 
+    private Building building11; 
+    private Building building12; 
+    private Building building13; 
+    private Building building14;
+
+    /**
+     * defines the CityscapeComponent constructor and initializes 
+     * all instance variables.
+     */
+
+    public CityscapeComponent()
+    {
+        this.skyRed = 7;
+        this.skyGreen = 0;
+        this.skyBlue = 108;
+
+        sky = new Sky(skyRed, skyGreen, skyBlue, 50, 25, -1250, 600);
+
+        building1 = new Building(200, 500, 99, 200); 
+        building2 = new Building(400, 400, 99, 300);
+        building3 = new Building(600, 600, 99, 100);
+        building4 = new Building(800, 300, 99, 400);
+        building5 = new Building(300, 200, 99, 500);
+        building6 = new Building(500, 500, 99, 200); 
+        building7 = new Building(700, 100, 99, 600);
+        building8 = new Building(900, 200, 99, 500);
+        building9 = new Building(0, 600, 99, 100);
+        building10 = new Building(100, 300, 99, 400); 
+        building11 = new Building(1000, 600, 99, 100);
+        building12 = new Building(1100, 300, 99, 400);
+        building13 = new Building(1200, 200, 99, 500);
+        building14 = new Building(1300, 400, 99, 300);
+    }
+
+    /** 
+     * This method is invoked by the Java Run-Time whenever the component
+     * needs to be redrawn. It does not need to be invoked explicitly.
+     * 
+     * @param g a reference to the Graphics object used for all drawing
+     * operations. 
+     * 
+     */
+
     @Override
     public void paintComponent(Graphics g)
     {
         Graphics2D g2 = (Graphics2D) g;  // cast to Graphics2D object
 
-        Building building1 = new Building(200, 500, 99, 200);
-        Building building2 = new Building(400, 400, 99, 300);
-        Building building3 = new Building(600, 600, 99, 100);
-        Building building4 = new Building(800, 300, 99, 400);
-        Building building5 = new Building(300, 200, 99, 500);
-        Building building6 = new Building(500, 500, 99, 200);
-        Building building7 = new Building(700, 100, 99, 600);
-        Building building8 = new Building(900, 200, 99, 500);
-        Building building9 = new Building(0, 600, 99, 100);
-        Building building10 = new Building(100, 300, 99, 400);
-        Building building11 = new Building(1000, 600, 99, 100);
-        Building building12 = new Building(1100, 300, 99, 400);
-        Building building13 = new Building(1200, 200, 99, 500);
-        Building building14 = new Building(1300, 400, 99, 300);
+        // draws sky, which is initially dark blue, with yellow cresent moon 
+        sky.draw(g2);
 
+        // draws 14 buildings with many windows on each
         building1.draw(g2);
         building2.draw(g2);
         building3.draw(g2);
@@ -66,10 +104,7 @@ public class CityscapeComponent extends JComponent
         building12.draw(g2);
         building13.draw(g2);
         building14.draw(g2);
-        
-        
-        
-      
+
     }
 
     /**
@@ -80,7 +115,13 @@ public class CityscapeComponent extends JComponent
     public void nextFrame()
     {
         // update the objects in the cityscape so they are animated
-        // ...
+        // changes color from dark blue to bright pink
+        // moves the moon down diagonally
+        // moves the sun up diagonally
+
+        this.sky.changeColor();
+        this.sky.moonMoveDownandRight();
+        this.sky.sunMoveUpandRight();
 
         // request that the Java Runtime repaints this component by invoking its paintComponent method
         //  do not explicitly invoke the paintComponent method

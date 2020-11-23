@@ -10,11 +10,22 @@ import java.awt.geom.Point2D;
 
 /**
  *
- * @author Ria Pande
- * @version 10/28/20
+ * @author rpande
+ * @version 28 October 2020
+ * 
+ * Building class creates buildings with different heights
+ * and coordinates. Window Class directly connects to 
+ * Building class in order to get the buildings' height.
  */
 public class Building
 {
+    /**
+     * 
+     * defines important integers (length, width, and x and y coordinates)
+     * along with window objects (54 windows max per building)
+     * 
+     */
+
     private int buildingLength;
     private int buildingWidth;
     private int xLeft;
@@ -75,9 +86,11 @@ public class Building
     private Window window54;
 
     /**
-    Constructs a target.
-    @param x the x coordinate of the top left corner
-    @param y the y coordinate of the top left corner
+    Constructs a building.
+    @param initialX the x coordinate of the top left corner of building
+    @param initialY the y coordinate of the top left corner of building
+    @param width the width of the building
+    @param length the length/height of the building
      */
     public Building(int initialX, int initialY, int width, int length)
     {
@@ -89,15 +102,21 @@ public class Building
 
     /**
     @param g2 the graphics context
+    draws building with windows
      */
     public void draw(Graphics2D g2)
     {   
         Rectangle2D.Double building = 
-        new Rectangle2D.Double(this.xLeft, this.yTop, this.buildingWidth, this.buildingLength);
-        
+            new Rectangle2D.Double(this.xLeft, this.yTop, this.buildingWidth, this.buildingLength);
+
         g2.setPaint(Color.black);
         g2.fill(building);
-        
+
+        /**
+         * 
+         * for every 100 in height, add 9 windows to building.
+         * 
+         */
         if (buildingLength >= 100)
         {
             Window window1 = new Window(xLeft + 5,612);
@@ -109,7 +128,7 @@ public class Building
             Window window7 = new Window(xLeft + 5,680);
             Window window8 = new Window(xLeft + 39,680);
             Window window9 = new Window(xLeft + 73,680);
-            
+
             window1.draw(g2);
             window2.draw(g2);
             window3.draw(g2);
@@ -131,7 +150,7 @@ public class Building
             Window window16 = new Window(xLeft + 5,510);
             Window window17 = new Window(xLeft + 39,510);
             Window window18 = new Window(xLeft + 73,510);
-            
+
             window10.draw(g2);
             window11.draw(g2);
             window12.draw(g2);
@@ -153,7 +172,7 @@ public class Building
             Window window25 = new Window(xLeft + 73,408);
             Window window26 = new Window(xLeft + 39,408);
             Window window27 = new Window(xLeft + 5,408);
-            
+
             window19.draw(g2);
             window20.draw(g2);
             window21.draw(g2);
@@ -175,7 +194,7 @@ public class Building
             Window window34 = new Window(xLeft + 73,306);
             Window window35 = new Window(xLeft + 39,306);
             Window window36 = new Window(xLeft + 5,306);
-            
+
             window28.draw(g2);
             window29.draw(g2);
             window30.draw(g2);
@@ -197,7 +216,7 @@ public class Building
             Window window43 = new Window(xLeft + 73,204);
             Window window44 = new Window(xLeft + 39,204);
             Window window45 = new Window(xLeft + 5,204);
-            
+
             window37.draw(g2);
             window38.draw(g2);
             window39.draw(g2);
@@ -219,7 +238,7 @@ public class Building
             Window window52 = new Window(xLeft + 73,102);
             Window window53 = new Window(xLeft + 39,102);
             Window window54 = new Window(xLeft + 5,102);
-            
+
             window46.draw(g2);
             window47.draw(g2);
             window48.draw(g2);

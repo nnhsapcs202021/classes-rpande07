@@ -1,5 +1,4 @@
 
-
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Graphics;
@@ -11,8 +10,12 @@ import java.awt.geom.Point2D;
 
 /**
  *
- * @author Ria Pande
- * @version 10/28/20
+ * @author rpande
+ * @version 28 October 2020
+ * 
+ * Window class creates windows with different coordinates. 
+ * Small yellow squares that go on buildings. 
+ * 
  */
 public class Window
 {
@@ -20,9 +23,9 @@ public class Window
     private int yTop;
 
     /**
-    Constructs a target.
-    @param x the x coordinate of the top left corner
-    @param y the y coordinate of the top left corner
+    Constructs a window.
+    @param initialX the x coordinate of the top left corner of window
+    @param initialY the y coordinate of the top left corner of window
      */
     public Window(int initialX, int initialY)
     {
@@ -32,14 +35,15 @@ public class Window
 
     /**
     @param g2 the graphics context
+    draws window
      */
     public void draw(Graphics2D g2)
     {   
         Rectangle2D.Double window = 
-        new Rectangle2D.Double(this.xLeft, this.yTop, 20, 20);
+            new Rectangle2D.Double(this.xLeft, this.yTop, 20, 20);
 
         g2.setPaint(Color.yellow);
         g2.fill(window);
-        
+
     }
 }
